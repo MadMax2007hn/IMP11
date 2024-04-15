@@ -1,2 +1,2 @@
 # Themen
-[] Rekursive Programmierung
+* Rekursive Programmierung
