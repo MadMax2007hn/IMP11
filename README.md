@@ -1,3 +1,3 @@
 # IMP11
 
-[I'm a relative reference to a repository file](../1.&nbsp;Finanzrechnung)
+[I'm a relative reference to a repository file](../1.Finanzrechnung)
