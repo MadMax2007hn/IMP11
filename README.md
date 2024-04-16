@@ -1,3 +1,3 @@
 # IMP11
 
-[1. Finanzrechnung](/1. Finanzrechnung)
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
