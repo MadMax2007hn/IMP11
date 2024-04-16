@@ -33,6 +33,17 @@ def math_quiz():
     print("Score: " + str(math_score))
     print("Fehler: " + str(falsch))
 
+def gluck():
 
 
-math_quiz()
+print("What would you like to do?")
+print("(1) Mathe Quiz")
+print("(2) Glücksspiel")
+while True:
+    action = input("Aktion: ")
+    if int(action) == 1:
+        math_quiz()
+    elif int(action):
+
+    else:
+        pass
