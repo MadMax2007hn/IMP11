@@ -34,7 +34,9 @@ def start_simulation():
             decay_prob = prob.get()
         except:
             decay_prob = "a"
-        if num_atoms.isdigit() == False:
+        if num_atoms == "":
+            messagebox.showerror("Fehler", "Leere Felder überprüfen")
+        elif num_atoms.isdigit() == False:
             messagebox.showerror("Fehler", "Die Anzahl der Atomkerne muss eine gültige Zahl sein.")
         elif decay_prob.isdigit() == False:
             messagebox.showerror("Fehler", "Wahrscheinlichkeit muss zwischen 0 und 1 liegen und darf keine Buchstaben beinhalten.")
