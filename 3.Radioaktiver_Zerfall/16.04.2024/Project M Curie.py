@@ -1,5 +1,6 @@
 import customtkinter
 import matplotlib.pyplot as plt
+from tkinter import messagebox
 import numpy as np
 ##push
 def simulate_decay(num_atoms, decay_prob):
@@ -24,10 +25,21 @@ def plot_decay(num_atoms, decay_prob):
 def start_simulation():
     try:
         num_atoms = int(anzahlkerne.get())
-        decay_prob = float(prob.get())
+        decay_prob = float(prob.get().replace(',','.'))
         plot_decay(num_atoms, decay_prob)
     except ValueError:
-        messagebox.showerror("Fehler", "Bitte geben Sie gültige Zahlen ein.")
+        num_atoms = anzahlkerne.get()
+        try:
+            decay_prob = int(prob.get())
+            decay_prob = prob.get()
+        except:
+            decay_prob = "a"
+        if num_atoms.isdigit() == False:
+            messagebox.showerror("Fehler", "Die Anzahl der Atomkerne muss eine gültige Zahl sein.")
+        elif decay_prob.isdigit() == False:
+            messagebox.showerror("Fehler", "Wahrscheinlichkeit muss zwischen 0 und 1 liegen und darf keine Buchstaben beinhalten.")
+        else:
+            messagebox.showerror("Fehler", "Es muss einen Fehler geben. Versuchen Sie es erneut.")
 
 customtkinter.set_appearance_mode("Dark")  # Modes: system (default), light, dark
 customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
@@ -35,13 +47,6 @@ customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-bl
 app = customtkinter.CTk()  # create CTk window like you do with the Tk window
 app.geometry("400x400")
 app.title("M. Curie")
-
-
-
-def button_function():
-    print("button pressed")
-
-
 
 # Use CTkButton instead of tkinter Button
 anzahlkerne = customtkinter.CTkEntry(app, width=300, placeholder_text="Anzahl Atomkerne")
