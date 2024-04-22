@@ -7,7 +7,7 @@ def simulate_decay(num_atoms, decay_prob):
     time_steps = 100
     decay_counts = [num_atoms]
     for _ in range(1, time_steps):
-        decayed = np.random.binomial(decay_counts[-1], decay_prob)
+        decayed = np.random.binomial(decay_counts[-1], decay_prob) #falsch, nicht mit binomial
         decay_counts.append(decay_counts[-1] - decayed)
     return decay_counts
 
