@@ -34,7 +34,7 @@ def math_quiz():
     print("Fehler: " + str(falsch))
 
 def gluck():
-
+    pass
 
 print("What would you like to do?")
 print("(1) Mathe Quiz")
@@ -44,6 +44,6 @@ while True:
     if int(action) == 1:
         math_quiz()
     elif int(action):
-
+        pass
     else:
         pass
