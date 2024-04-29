@@ -146,8 +146,8 @@ def switch_event():
     pass
 
 
-customtkinter.set_appearance_mode("System")  # Modes: system (default), light, dark
-customtkinter.set_default_color_theme("blue")  # Themes: blue (default), dark-blue, green
+customtkinter.set_appearance_mode("dark")  # Modes: system (default), light, dark
+customtkinter.set_default_color_theme("green")  # Themes: blue (default), dark-blue, green
 
 app = customtkinter.CTk()  # create CTk window like you do with the Tk window
 app.geometry("400x660")
@@ -192,6 +192,6 @@ a_switch = customtkinter.CTkSwitch(app, text="a(t)", command=switch_event, varia
 a_switch.place(relx=0.7, rely=0.85, anchor=customtkinter.CENTER)
 
 button = customtkinter.CTkButton(master=app, width=300, text="Berechnen", command=button)
-button.place(relx=0.5, rely=0.9, anchor=customtkinter.CENTER)
+button.place(relx=0.5, rely=0.95, anchor=customtkinter.CENTER)
 
 app.mainloop()
