@@ -8,11 +8,13 @@ import os
 import math
 import datetime
 import customtkinter
+from tkinter import messagebox
 
 def show_log():
 	log_window = tk.Toplevel(root)
-	log_window.title("Graph Log")
+	log_window.title("Log-Datei")
 	log_window.attributes("-topmost", True)  # Set log window to always stay on top
+	log_window.iconbitmap("log.ico")
 
 	log_text = tk.Text(log_window, wrap=tk.WORD)
 	log_text.pack(fill=tk.BOTH, expand=True)
@@ -27,14 +29,30 @@ def show_log():
 			log_text.config(state=tk.DISABLED)  # Disable editing again
 
 		# Schedule the next update
-		log_window.after(1000, update_log)
+		log_window.after(500, update_log)
 
 	# Call update_log function to start updating the log
 	update_log()
 
 def log_graphs(interval, length):
-	log_entry = f"Graphs shown at {datetime.datetime.now()}\n"
-	log_entry += f"Interval: {interval}, Length: {length}\n\n"
+	log_entry = f"Graphen gezeigt um {datetime.datetime.now()}\n"
+	log_entry += f"Interval: {interval}, Länge: {length}\n\n"
+
+	# Read existing contents of log file
+	with open("graph_log.txt", "r") as log_file:
+		existing_logs = log_file.read()
+
+	# Prepend new log entry to existing logs
+	updated_logs = log_entry + existing_logs
+
+	# Write updated logs back to file
+	with open("graph_log.txt", "w") as log_file:
+		log_file.write(updated_logs)
+
+
+def log_error(interval, length, message):
+	log_entry = f"ERROR: Versuch um {datetime.datetime.now()} mit dem Fehler: {message}\n"
+	log_entry += f"Interval: {interval},  Länge: {length}\n\n"
 
 	# Read existing contents of log file
 	with open("graph_log.txt", "r") as log_file:
@@ -57,8 +75,27 @@ def show_graphs():
 		canvas2.get_tk_widget().destroy()
 
 	# Get interval and length of x-axis from entry widgets
-	interval = float(interval_entry.get().replace(',','.'))
-	length = int(length_entry.get().replace(',', '.'))
+	interval = interval_entry.get().replace(',','.')
+	length = length_entry.get().replace(',', '.')
+
+	#check if data is entered correctly and format
+	#1. interval
+	try:
+		interval = float(interval)
+	except:
+		message = "Der Intervall muss eine Fließkommazahl sein"
+		messagebox.showerror("Fehler", message)
+		log_error(interval, length, message)
+		return
+
+	#2. length
+	try:
+		length = int(length)
+	except:
+		message = "Die Länge muss eine natürliche Zahl sein (1,2,3,4)"
+		log_error(interval, length, message)
+		messagebox.showerror("Fehler", message)
+		return
 
 	log_graphs(interval, length)
 
@@ -97,13 +134,14 @@ def show_graphs():
 def open_impressum_window():
 	impressum_window = tk.Toplevel(root)
 	impressum_window.title("Impressum")
+	impressum_window.iconbitmap("impressum.ico")
 
 	impressum_text = tk.Text(impressum_window, wrap=tk.WORD)
 	impressum_text.pack(fill=tk.BOTH, expand=True)
 
 	# Insert impressum text
-	impressum_text.insert(tk.END, "Description of the App:\n")
-	impressum_text.insert(tk.END, "This app provides a dashboard for the CCCP Space Project.\n\n")
+	impressum_text.insert(tk.END, "Beschreibung der App:\n")
+	impressum_text.insert(tk.END, "Hier kommt die Beschreibung unseres Projektes hin\n\n")
 
 	impressum_text.insert(tk.END, "CEO:\n")
 	impressum_text.insert(tk.END, "Maximilian Schmidt\n\n")
@@ -139,7 +177,6 @@ def load_selected_settings(event=None):
 			interval_entry.insert(0, settings["interval"])
 			length_entry.delete(0, tk.END)
 			length_entry.insert(0, settings["length"])
-			print("Settings loaded successfully.")
 			show_graphs()  # Update graphs after loading settings
 
 
@@ -160,7 +197,6 @@ def save_settings():
 	if filename:
 		with open(filename, "w") as f:
 			json.dump(settings, f)
-			print("Settings saved successfully.")
 	update_files_dropdown()  # Update dropdown after saving settings
 	selected_file_var.set(os.path.splitext(os.path.basename(filename))[0])
 
@@ -173,7 +209,6 @@ def load_settings():
 			interval_entry.insert(0, settings["interval"])
 			length_entry.delete(0, tk.END)
 			length_entry.insert(0, settings["length"])
-			print("Settings loaded successfully.")
 			update_files_dropdown()  # Update dropdown after loading settings
 			selected_file_var.set(os.path.splitext(os.path.basename(filename))[0])
 			show_graphs()  # Update graphs after loading settings
@@ -181,24 +216,46 @@ def load_settings():
 def interval_length_changed(event=None):
 	selected_file_var.set("")
 
+def empty_all():
+    interval_entry.delete(0, tk.END)
+    length_entry.delete(0, tk.END)
+
+def reset_default():
+    interval_entry.delete(0, tk.END)
+    interval_entry.insert(0, "0.1")
+    length_entry.delete(0, tk.END)
+    length_entry.insert(0, "50")
+    show_graphs()
+
 # Create main window
 root = tk.Tk()
-root.title("CCCP Space Project Dashboard")  # Title added here
-#root.state('zoomed') - does not work in Replit
+root.title("CCCP Space Project")  # Title added here
+#root.state('zoomed') #- does not work in Replit
 root.minsize(1286,736)
 root.bind("<F11>", lambda event: toggle_fullscreen())
 root.bind("<Control-s>", lambda event: save_settings())
 root.bind("<Control-l>", lambda event: load_settings())
 root.bind("<F5>", lambda event: show_graphs())
+root.bind("<F1>", lambda event: empty_all())
+root.bind("<Control-r>", lambda event: reset_default())
+root.iconbitmap("rakete.ico")
 
 
 # Title label
-title_label = ttk.Label(root, text="CCCP Space Project Dashboard", font=("Segoe UI", 20))
+title_label = ttk.Label(root, text="CCCP Space Project", font=("Segoe UI", 20))
 title_label.pack()  # Centered horizontally
 
+#Extra Setting Frame
+extra_settings_frame= ttk.Frame(root)
+extra_settings_frame.pack(side=tk.TOP, fill=tk.X)
+
 # Full-screen button
-fullscreen_button = ttk.Button(root, text="⛶", command=toggle_fullscreen)
-fullscreen_button.pack(side=tk.TOP, anchor=tk.NE, padx=5, pady=5)
+fullscreen_button = ttk.Button(extra_settings_frame, text="⛶", command=toggle_fullscreen)
+fullscreen_button.pack(side=tk.RIGHT, padx=10)
+
+# Button to show log
+show_log_button = ttk.Button(extra_settings_frame, text="Log Anzeigen", command=show_log)
+show_log_button.pack(side=tk.RIGHT)
 
 # Dropdown menu for selecting settings file
 selected_file_var = tk.StringVar()
@@ -212,14 +269,14 @@ canvas1 = None
 canvas2 = None
 
 # Create entry widgets for interval and length of x-axis
-interval_label = ttk.Label(root, text="Interval between points:")
+interval_label = ttk.Label(root, text="Interval:")
 interval_label.pack()
 interval_entry = ttk.Entry(root)
 interval_entry.insert(0, "0.1")  # Default interval
 interval_entry.pack()
 interval_entry.bind("<KeyRelease>", interval_length_changed)
 
-length_label = ttk.Label(root, text="Length of x-axis:")
+length_label = ttk.Label(root, text="Länge:")
 length_label.pack()
 length_entry = ttk.Entry(root)
 length_entry.insert(0, "50")  # Default length
@@ -228,28 +285,25 @@ length_entry.bind("<KeyRelease>", interval_length_changed)
 
 
 # Create a button
-button = ttk.Button(root, text="Show Graphs", command=show_graphs)
+button = ttk.Button(root, text="Graphen anzeigen", command=show_graphs)
 button.pack()
 
 # Footer frame
 footer_frame = ttk.Frame(root)
 footer_frame.pack(side=tk.BOTTOM, fill=tk.X)
 
+# Save settings button
+save_button = ttk.Button(footer_frame, text="Einstellungen speichern", command=save_settings)
+save_button.pack(side=tk.LEFT, padx=2, pady=5, fill=tk.X, expand=True)
+
 # Impressum button
 impressum_button = ttk.Button(footer_frame, text="Impressum", command=open_impressum_window)
-impressum_button.pack(side=tk.LEFT)
-
-# Save settings button
-save_button = ttk.Button(footer_frame, text="Save Settings", command=save_settings)
-save_button.pack(side=tk.LEFT, padx=(5, 0))
+impressum_button.pack(side=tk.LEFT, padx=(5, 2), pady=5, fill=tk.X, expand=True)
 
 # Load settings button
-load_button = ttk.Button(footer_frame, text="Load Settings", command=load_settings)
-load_button.pack(side=tk.RIGHT, padx=(5, 0))
+load_button = ttk.Button(footer_frame, text="Einstellungen abrufen", command=load_settings)
+load_button.pack(side=tk.LEFT, padx=2, pady=5, fill=tk.X, expand=True)
 
-# Button to show log
-show_log_button = ttk.Button(footer_frame, text="Show Log", command=show_log)
-show_log_button.pack(side=tk.RIGHT)
 
 # Run the Tkinter event loop
 root.mainloop()

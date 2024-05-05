@@ -1,135 +1,18 @@
-Graphs shown at 2024-05-04 15:28:39.589736
-Interval: 0.1, Length: 50
+ERROR: Versuch um 2024-05-05 18:10:52.612947 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50h
 
-Graphs shown at 2024-05-04 15:26:52.073414
-Interval: 0.1, Length: 40
+ERROR: Versuch um 2024-05-05 18:10:35.426277 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50ö
 
-Graphs shown at 2024-05-04 15:26:40.549103
-Interval: 0.1, Length: 50
+ERROR: Versuch um 2024-05-05 18:10:09.640638 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50d
 
-Graphs shown at 2024-05-04 15:24:27.510830
-Interval: 0.1, Length: 50
+ERROR: Versuch um 2024-05-05 18:10:01.400079 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50d
 
-Graphs shown at 2024-05-04 15:23:51.186965
-Interval: 0.1, Length: 50
+ERROR: Versuch um 2024-05-05 18:09:31.358175 mit dem Fehler: Der Intervall muss eine Fließkommazahl sein
+Interval: 0.1hj,  Länge: 40
 
-Graphs shown at 2024-05-04 15:23:34.156376
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:23:29.012104
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:23:27.741236
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:22:42.882119
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:22:36.247062
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:22:34.266978
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:22:26.091538
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:22:05.715023
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:22:02.207776
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:22:00.345182
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:21:58.649074
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:21:57.106495
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:21:51.813303
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:21:47.700258
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:21:34.156122
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:21:28.049172
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:21:25.404786
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:21:22.328358
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:21:17.937377
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:21:09.143047
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:20:22.981375
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:20:11.476519
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:20:08.907232
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:17:30.342546
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 15:12:56.691298
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:08:48.005509
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:08:31.919084
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:08:24.719640
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 15:08:08.287429
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:53:55.729106
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:53:49.575051
-Interval: 0.1, Length: 40
-
-Graphs shown at 2024-05-04 14:53:45.931526
-Interval: 0.1, Length: 48
-
-Graphs shown at 2024-05-04 14:53:31.658139
-Interval: 0.1, Length: 48
-
-Graphs shown at 2024-05-04 14:53:22.892961
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:53:18.294706
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:51:32.769219
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:51:23.924647
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:51:20.364956
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:47:12.842338
-Interval: 0.1, Length: 50
-
-Graphs shown at 2024-05-04 14:47:26.720250
-Interval: 0.1, Length: 52
+Graphen gezeigt um 2024-05-05 18:09:23.032802
+Interval: 0.1, Länge: 40
 
