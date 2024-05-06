@@ -1,0 +1,18 @@
+ERROR: Versuch um 2024-05-05 18:10:52.612947 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50h
+
+ERROR: Versuch um 2024-05-05 18:10:35.426277 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50ö
+
+ERROR: Versuch um 2024-05-05 18:10:09.640638 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50d
+
+ERROR: Versuch um 2024-05-05 18:10:01.400079 mit dem Fehler: Die Länge muss eine natürliche Zahl sein (1,2,3,4)
+Interval: 0.1,  Länge: 50d
+
+ERROR: Versuch um 2024-05-05 18:09:31.358175 mit dem Fehler: Der Intervall muss eine Fließkommazahl sein
+Interval: 0.1hj,  Länge: 40
+
+Graphen gezeigt um 2024-05-05 18:09:23.032802
+Interval: 0.1, Länge: 40
+
